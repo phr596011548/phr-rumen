@@ -26,7 +26,7 @@ public class Stucontroller {
     private Stuservice stuservice;
     @Autowired
     private HttpServletRequest request;
-/*查询 哈哈哈 */
+/*查询 哈哈哈 nihao a a */
     @RequestMapping("querystu")
     @ResponseBody
     public DataTablesData querystu(Dataparams dataparams){
