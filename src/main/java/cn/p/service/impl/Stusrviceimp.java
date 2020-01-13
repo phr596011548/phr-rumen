@@ -26,7 +26,7 @@ public class Stusrviceimp implements Stuservice {
         data.setData(list);
         return data;
     }
-
+        /*伪删*/
     @Override
     public void updateisdel(Integer id) {
         studao.updateisdel(id);
