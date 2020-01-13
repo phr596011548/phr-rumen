@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.p.dao.Studao">
+<select id="querycount" parameterType="cn.p.entity.vo.Dataparams" resultType="long">
+   select count(*) from ssm_stu where isdel=1
+</select>
+
+   <select id="querystu" parameterType="cn.p.entity.vo.Dataparams" resultType="cn.p.entity.po.Student">
+      select * from ssm_stu where isdel=1 limit #{start},#{length}
+   </select>
+
+   <update id="updateisdel" >
+      update ssm_stu set isdel=0 where id=#{id}
+   </update>
+
+   <select id="queryid" resultType="cn.p.entity.po.Student">
+      select * from ssm_stu where id=#{id}
+   </select>
+
+
+   <!--<select id="queryshoplist" resultType="cn.p.entity.po.Shoptype">
+        select * from t_shop
+    </select>
+    <insert id="addshop" parameterType="cn.p.entity.po.Shoptype">
+          insert into t_shop(id,name,pid) value (#{id},#{name},#{pid})
+
+      </insert>
+
+    <delete id="deleteshop"  parameterType="java.lang.Integer" >
+            delete from t_shop where id=#{id};
+
+    </delete>-->
+    <!--   <select id="queryid"   parameterType="java.lang.Integer" resultType="cn.p.entity.po.Menu">
+     select*  from t_menu where menuid=#{menuid}
+   </select>
+
+     <update id="updateuser" parameterType="cn.p.entity.po.Menu">
+ update t_menu set  menuname=#{menuname},menurl=#{menurl},isDirectort=#{isDirectort},pid=#{pid} where menuid=#{menuid}
+
+ </update>
+
+
+
+     <select id="querylist" resultType="cn.p.entity.po.Menu">
+         select  menuid,pid,menuname,menurl  from t_menu
+     </select>
+ <select id="querylistbyid" resultType="cn.p.entity.po.Menu">
+ SELECT m.menuid,m.menuname,m.menurl,m.pid from final_user fu LEFT JOIN t_user_part tup on fu.id=tup.userid LEFT JOIN t_part_menu tpm ON tpm.partsid = tup.partid LEFT JOIN t_menu m ON tpm.menusid=m.menuid where fu.id=#{0}
+
+ </select>
+
+     <delete id="delMenuByIdList" >
+         delete from t_menu where menuid in
+         <foreach collection="list" item="m" separator="," open="(" close=")">
+             #{m}
+         </foreach>
+     </delete>-->
+</mapper>
