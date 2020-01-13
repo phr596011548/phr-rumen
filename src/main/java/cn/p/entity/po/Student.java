@@ -1,5 +1,6 @@
 package cn.p.entity.po;
 
+import cn.p.comm.MyAnnotation;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -10,13 +11,18 @@ import java.util.Date;
 public class Student {
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
+    @MyAnnotation(columnIndex=1,columnName="名字")
     private String name;
+    @MyAnnotation(columnIndex=0,columnName="年龄")
     private Integer age;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @MyAnnotation(columnIndex=2,columnName="生日")
     private Date birthday;
+    @MyAnnotation(columnIndex=3,columnName="家庭住址")
     private String address;
     private String picimg;
     private Integer isdel;
+    @MyAnnotation(columnIndex=4,columnName="本机IP")
     private String idaddrs;
 
     public Integer getId() {

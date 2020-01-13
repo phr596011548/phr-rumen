@@ -14,4 +14,6 @@ public interface Studao extends BaseMapper<Student> {
     void updateisdel(Integer id);
 
     Student queryid(Integer id);
+
+    List<Student> querystuc();
 }

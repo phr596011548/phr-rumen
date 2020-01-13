@@ -1,5 +1,6 @@
 package cn.p.controller;
 
+import cn.p.entity.po.Excelentity;
 import cn.p.entity.po.Student;
 import cn.p.entity.vo.DataTablesData;
 import cn.p.entity.vo.Dataparams;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.crypto.Data;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.util.*;
+
+import static cn.p.util.Excelutilpro.outExcelFile;
 
 @Controller
 @RequestMapping("stu")
@@ -111,4 +114,25 @@ public class Stucontroller {
         }
         return map;
     }
+/*
+    public static void main(String[] args) {
+        Excelentity e = new Excelentity(6,"id");
+        Excelentity e1 = new Excelentity(1,"name");
+        List<Excelentity> list = new ArrayList<>();
+        list.add(e);
+        list.add(e1);
+        outExcelFile(list,"D:/test.xls");
+        System.out.println("导出Excel成功 ");
+    }*/
+    @RequestMapping("excelpro")
+    @ResponseBody
+    public void excelpro() {
+     Map map=new HashMap();
+    List<Student> stu = stuservice.querystuc();
+    outExcelFile(stu,"D:/"+UUID.randomUUID()+".xls");
+    map.put("code",200);
+    System.out.println("导出了");
 }
+
+}
+

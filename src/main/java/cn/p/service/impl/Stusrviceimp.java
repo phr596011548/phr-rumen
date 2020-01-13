@@ -46,4 +46,9 @@ public class Stusrviceimp implements Stuservice {
     public void updatestudent(Student student) {
         studao.updateById(student);
     }
+
+    @Override
+    public List<Student> querystuc() {
+        return studao.querystuc();
+    }
 }

@@ -25,11 +25,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+
 
     <!-- 扫描包路径 识别   @controller -->
     <context:component-scan base-package="cn.p.controller" />

@@ -18,6 +18,9 @@
    <select id="queryid" resultType="cn.p.entity.po.Student">
       select * from ssm_stu where id=#{id}
    </select>
+   <select id="querystuc" resultType="cn.p.entity.po.Student">
+      select * from ssm_stu
+   </select>
 
 
    <!--<select id="queryshoplist" resultType="cn.p.entity.po.Shoptype">

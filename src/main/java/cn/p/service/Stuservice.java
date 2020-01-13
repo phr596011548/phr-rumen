@@ -4,6 +4,8 @@ import cn.p.entity.po.Student;
 import cn.p.entity.vo.DataTablesData;
 import cn.p.entity.vo.Dataparams;
 
+import java.util.List;
+
 public interface Stuservice {
     DataTablesData<Student> querystu(Dataparams dataparams);
 
@@ -14,4 +16,6 @@ public interface Stuservice {
     Student queryid(Integer id);
 
     void updatestudent(Student student);
+
+    List<Student> querystuc();
 }
