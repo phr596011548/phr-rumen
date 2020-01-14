@@ -5,6 +5,7 @@ import cn.p.entity.po.Student;
 import cn.p.entity.vo.DataTablesData;
 import cn.p.entity.vo.Dataparams;
 import cn.p.service.Stuservice;
+import cn.p.util.ExcelUtils;
 import cn.p.util.FileUtilesalbb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -127,11 +128,15 @@ public class Stucontroller {
     @RequestMapping("excelpro")
     @ResponseBody
     public void excelpro() {
-     Map map=new HashMap();
     List<Student> stu = stuservice.querystuc();
     outExcelFile(stu,"D:/"+UUID.randomUUID()+".xls");
-    map.put("code",200);
     System.out.println("导出了");
+}
+
+    @RequestMapping("exceltest")
+    public void exceltest(HttpServletResponse response){
+    List<Student> stu = stuservice.querystuc();
+    ExcelUtils.excelutil(stu,response);
 }
 
 }
